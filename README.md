@@ -6,6 +6,8 @@ You will have 2 days to complete the assignment. Once you have completed your so
 
 The goal of this challenge is to build out an interactive flowchart-based UI for manipulating 3D objects. Inspiration can be something like this (**you'll be using React Flow, a library in which this was made**): 
 
+![React Flow inspiration](src/reactflow-banner.gif?raw=true "React Flow inspiration")
+
 Please clone this repository and submit it once you are finished.
 
 Here are the rules of this challenge.. you must:
