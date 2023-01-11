@@ -1,6 +1,36 @@
-# Getting Started with Create React App
+# DimensionaLab Frontend Engineering Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome Candidate and thank you for taking the time to complete the DimensionLab take-home challenge for our senior frontend engineer position.
+
+You will have 2 days to complete the assignment. Once you have completed your solution, please reply with a link to a github repository and instructions on how to install / run the application.
+
+The goal of this challenge is to build out an interactive flowchart-based UI for manipulating 3D objects. Inspiration can be something like this (**you'll be using React Flow, a library in which this was made**): 
+
+Please clone this repository and submit it once you are finished.
+
+Here are the rules of this challenge.. you must:
+
+- Build an application that uses [React Flow](https://github.com/wbkd/react-flow) and [react-three-fiber](https://github.com/pmndrs/react-three-fiber) to displays an animated view of multiple instances of a particular 3D object. Please use this app template as a starting point and use `npm start` to start the application.
+- Implement a custom node that will be connected to the main node and will let user to change the shape of the 3D object. You should be able to pick from minimum of 3 shapes.
+- Implement a node in which you can use a number input to specify the number of instances of a 3D object. Minimum should be 1, maximum 100.
+- Implement a node with color picker to change the color of a currently selected 3D object.
+- Add a node that will provide a slider by which you can change the current zoom level of a node displaying the 3D object.
+
+## Requirements:
+ 1) All interaction should happen in the same page
+ 2) Demonstrate use of React hooks
+ 3) Demonstrate knowledge of component modularization
+ 4) Utilize CSS to create the layout of the nodes. Add hover styles to the items the user is interacting with.
+ 5) Create components as you feel is best suited for your solution
+
+![App starter template](src/app-template.png?raw=true "App starter template")
+
+## Bonuses
+2) Make it pretty
+3) Make it accessible
+4) Add unit tests
+
+  Good luck and if you have questions, please reach out to us at DimensionLab.hello@dimensionlab.org
 
 ## Available Scripts
 
@@ -29,18 +59,28 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
