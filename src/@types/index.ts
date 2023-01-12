@@ -1,15 +1,9 @@
 import { ComponentType } from 'react'
 import { Node, NodeProps } from 'reactflow'
 
-export type nodeKeyTypes =
-  | 'main'
-  | 'colorSelectorNode'
-  | 'input'
-  | 'zoomSelectorNode'
-  | 'shapeSelectorNode'
-//TODO: move types to types folder
+export type NodeKeyTypes = 'main' | 'colorSelectorNode' | 'zoomSelectorNode' | 'typeSelectorNode' // This enables to give the types on type in initialNodes
 export type CustomNodeTypes = {
-  [key in nodeKeyTypes]?: ComponentType<NodeProps>
+  [key in NodeKeyTypes]?: ComponentType<NodeProps>
 }
-export type CustomNode = Node & { type?: nodeKeyTypes }
+export type CustomNode = Node & { type?: NodeKeyTypes }
 export type GeometryType = 'cube' | 'pyramid'

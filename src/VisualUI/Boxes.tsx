@@ -4,17 +4,26 @@ import { BoxGeometry, MeshLambertMaterial, Object3D, TetrahedronGeometry } from 
 import useStore from '../store'
 
 const tempBoxes = new Object3D()
+/**
+ * @dev hardcoded width and height value for test purpose
+ */
 const i = 20
 const j = 20
 
+/**
+ *
+ * @returns Particle component consists of much box or Tentrahedron Geometry
+ */
 const Boxes = () => {
   const { color, scale, type } = useStore()
   const material = new MeshLambertMaterial({ color: color })
+
   const boxesGeometry = useMemo(
     () => (type === 'cube' ? new BoxGeometry(1, 1, 1) : new TetrahedronGeometry(1, 0)),
     [type]
   )
 
+  // initial matrix
   const posMatrix = useMemo(() => {
     let tempMatrix = []
     for (let x = 0; x < i; x++) {
@@ -32,15 +41,13 @@ const Boxes = () => {
 
   useFrame(({ clock }) => {
     const t = clock.oldTime * 0.001
-    for (let ii = 0; ii < posMatrix.length; ii++) {
-      let x = posMatrix[ii].x
-      let y = posMatrix[ii].y
-      let z = posMatrix[ii].z
+    posMatrix.forEach((pos, index) => {
+      const { x, y, z } = pos
       tempBoxes.position.set(x, y, z)
-      tempBoxes.rotation.y = t + ii
+      tempBoxes.rotation.y = t + i
       tempBoxes.updateMatrix()
-      ref.current?.setMatrixAt(ii, tempBoxes.matrix)
-    }
+      ref.current?.setMatrixAt(index, tempBoxes.matrix)
+    })
     ref.current.instanceMatrix.needsUpdate = true
   })
 

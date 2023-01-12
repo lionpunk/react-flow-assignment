@@ -1,30 +1,22 @@
 import React, { memo } from 'react'
 import { Handle, Position } from 'reactflow'
-import { GeometryType } from '../@types'
-import useStore from '../store'
-import NodeHeader from './NodeHeader'
+import { shallow } from 'zustand/shallow'
+import { GeometryType } from '../../@types'
+import useStore from '../../store'
+import NodeHeader from './../NodeHeader'
 
-interface ColorSelectorNodeInterface {
+interface TypeNodeInterface {
   data: any
   isConnectable?: boolean
 }
-export default memo(({ data, isConnectable }: ColorSelectorNodeInterface) => {
-  const { type, setType } = useStore()
+export default memo(({ data, isConnectable }: TypeNodeInterface) => {
+  const [type, setType] = useStore((state) => [state.type, state.setType], shallow)
   const handleShapeTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setType(event.target.name as GeometryType)
   }
   return (
     <>
-      <Handle
-        type="target"
-        position={Position.Left}
-        style={{ background: '#F00' }}
-        onConnect={(params) => console.log('handle onConnect', params)}
-        isConnectable={isConnectable}
-      />
-
       <NodeHeader>{data.label}</NodeHeader>
-
       <div className="node_body">
         <input
           id="cube"
@@ -47,20 +39,7 @@ export default memo(({ data, isConnectable }: ColorSelectorNodeInterface) => {
         />
         <label htmlFor="pyramid">pyramid</label>
       </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id="a"
-        style={{ top: 10, background: '#555' }}
-        isConnectable={isConnectable}
-      />
-      <Handle
-        type="source"
-        position={Position.Right}
-        id="b"
-        style={{ bottom: 10, top: 'auto', background: '#555' }}
-        isConnectable={isConnectable}
-      />
+      <Handle type="source" position={Position.Right} isConnectable={isConnectable} />
     </>
   )
 })

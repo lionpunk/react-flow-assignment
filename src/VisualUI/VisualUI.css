@@ -16,6 +16,31 @@
   border-radius: 8px;
 }
 
+/* ------- React-Flow Handle style ------------ */
+.react-flow__handle {
+  background-color: #bfc4c8;
+  min-width: 10px;
+  min-height: 10px;
+}
+
+.react-flow__handle-right {
+  right: -1px;
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-flow__handle-left {
+  left: -3px;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+/* ------------------------------- */
+
+/* -------------- Custom Node Style -----------*/
 .node_title {
   font-size: 14px;
   text-transform: capitalize;
@@ -25,3 +50,4 @@
 .node_body {
   padding: 4px 4px 8px 4px;
 }
+/* ------------------------------------ */

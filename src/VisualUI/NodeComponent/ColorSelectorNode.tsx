@@ -1,27 +1,20 @@
 import React, { memo } from 'react'
 import { Handle, Position } from 'reactflow'
-import useStore from '../store'
-import NodeHeader from './NodeHeader'
+import { shallow } from 'zustand/shallow'
+import useStore from '../../store'
+import NodeHeader from '../NodeHeader'
 
-interface ColorSelectorNodeInterface {
+interface ColorNodeInterface {
   data?: any
   isConnectable?: boolean
 }
-export default memo(({ data, isConnectable }: ColorSelectorNodeInterface) => {
-  const { color, setColor } = useStore()
+export default memo(({ data, isConnectable }: ColorNodeInterface) => {
+  const [color, setColor] = useStore((state) => [state.color, state.setColor], shallow)
   const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setColor(event.target.value)
   }
   return (
     <>
-      <Handle
-        type="target"
-        position={Position.Left}
-        style={{ background: '#F00' }}
-        onConnect={(params) => console.log('handle onConnect', params)}
-        isConnectable={isConnectable}
-      />
-
       <NodeHeader>{data.label}</NodeHeader>
 
       <div className="node_body">
@@ -50,20 +43,7 @@ export default memo(({ data, isConnectable }: ColorSelectorNodeInterface) => {
           />
         </div>
       </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id="a"
-        style={{ top: 10, background: '#555' }}
-        isConnectable={isConnectable}
-      />
-      <Handle
-        type="source"
-        position={Position.Right}
-        id="b"
-        style={{ bottom: 10, top: 'auto', background: '#555' }}
-        isConnectable={isConnectable}
-      />
+      <Handle type="source" position={Position.Right} isConnectable={isConnectable} />
     </>
   )
 })

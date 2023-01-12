@@ -4,6 +4,7 @@ import ReactFlow, {
   Background,
   Connection,
   Edge,
+  Position,
   useEdgesState,
   useNodesState,
 } from 'reactflow'
@@ -12,53 +13,52 @@ import MainNode from './MainNode'
 
 import 'reactflow/dist/style.css'
 
-import ColorSelecotorNode from './ColorSelecotorNode'
+import ColorSelectorNode from './NodeComponent/ColorSelectorNode'
 import './VisualUI.css'
 import { CustomNode, CustomNodeTypes } from '../@types'
-import ScaleSelectorNode from './ScaleSelectorNode'
-import TypeSelectorNode from './TypeSelectorNode'
+import TypeSelectorNode from './NodeComponent/TypeSelectorNode'
+import ZoomSelectorNode from './NodeComponent/ZoomSelectorNode'
 
 const initialNodes: CustomNode[] = [
   {
     id: '1',
-    type: 'shapeSelectorNode',
+    type: 'typeSelectorNode', // type only accepts string defined NodeType types ex:  type NodeKeyTypes = 'main' | 'colorSelectorNode' | 'zoomSelectorNode' | 'typeSelectorNode'
     data: { label: 'SHAPE TYPE' },
-    position: { x: 250, y: 5 },
+    position: { x: 250, y: 100 },
   },
   {
     id: '2',
     type: 'colorSelectorNode',
-    data: { label: 'shape color' },
-    position: { x: 100, y: 100 },
+    data: { label: 'SHAPE COLOR' },
+    position: { x: 250, y: 300 },
   },
   {
     id: '3',
     type: 'zoomSelectorNode',
     data: { label: 'ZOOM LEVEL' },
-    position: { x: 400, y: 100 },
+    position: { x: 250, y: 500 },
   },
   {
     id: '4',
     type: 'main',
     data: { label: 'Node 4' },
-    position: { x: 400, y: 200 },
+    position: { x: 600, y: 250 },
+    targetPosition: Position.Left,
   },
 ]
 
 const initialEdges: Edge[] = [
-  { id: 'e1-4', source: '1', target: '4', animated: true },
-  { id: 'e2-4', source: '2', target: '4', animated: true },
-  { id: 'e3-4', source: '3', target: '4', animated: true },
+  { id: 'e1-4', source: '1', target: '4', targetHandle: 'a', animated: true },
+  { id: 'e2-4', source: '2', target: '4', targetHandle: 'b', animated: true },
+  { id: 'e3-4', source: '3', target: '4', targetHandle: 'c', animated: true },
 ]
 
 const nodeTypes: CustomNodeTypes = {
   main: MainNode,
-  colorSelectorNode: ColorSelecotorNode,
-  zoomSelectorNode: ScaleSelectorNode,
-  shapeSelectorNode: TypeSelectorNode,
+  colorSelectorNode: ColorSelectorNode,
+  zoomSelectorNode: ZoomSelectorNode,
+  typeSelectorNode: TypeSelectorNode,
 }
-
-console.log('node types ==>', nodeTypes)
 
 const BasicFlow = () => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes)
