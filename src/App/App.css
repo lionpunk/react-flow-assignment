@@ -11,3 +11,11 @@
   border-bottom: 1px solid #eee;
   padding: 0 1rem;
 }
+
+p {
+  margin: 0;
+}
+
+hr {
+  border-top: #bdc2c6;
+}

@@ -4,7 +4,24 @@
 }
 
 .react-flow__node-main {
-  padding: 10px;
   background-color: #556677;
-  color: white;
+}
+
+.react-flow__node {
+  min-width: 200px;
+  min-height: 50px;
+  background-color: white;
+  border: 1px solid #bdc2c6;
+  box-shadow: 0px 10px 6px -7px #bdc2c6;
+  border-radius: 8px;
+}
+
+.node_title {
+  font-size: 14px;
+  text-transform: capitalize;
+  margin: 4px 4px 8px 4px;
+}
+
+.node_body {
+  padding: 4px 4px 8px 4px;
 }
